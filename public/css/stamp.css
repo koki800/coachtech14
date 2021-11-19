@@ -1,0 +1,15 @@
+body{
+  background-color: gainsboro;
+}
+.text{
+  text-align: center;
+}
+.stamp_container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 75vw;
+}
+button{
+  width: 45%;
+}

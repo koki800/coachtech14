@@ -1,0 +1,18 @@
+.form{
+  position: relative;
+  top: 20%;
+  left: 40%;
+}
+p{
+  text-align: center;
+}
+p:nth-last-child(3){
+  text-decoration: none;
+}
+button{
+  background-color: blue;
+  color: white;
+}
+.ttl,input,button,.link{
+  margin-bottom: 50px;
+}
