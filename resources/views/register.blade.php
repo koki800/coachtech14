@@ -30,7 +30,7 @@
       </form>
     </div>
     <div class="link">
-      <p>>アカウントをお持ちの方はこちらから</p>
+      <p>アカウントをお持ちの方はこちらから</p>
       <p><a href="/login">ログイン</a></p>
     </div>
   </div>

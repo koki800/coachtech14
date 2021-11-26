@@ -6,29 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Time;
 use App\Models\User;
-use App\Models\Rest;
 
-class AtteController extends Controller
+class AttendanceController extends Controller
 {   
-    //register
-    public function register(Request $request){
-        $form = $request -> all();
-        Users::create($form);
-        return view('login');
-    }
-
-    //login
-    public function login(Request $request){
-        $text = Auth::user()->name ;
-        $ses = $request->session()->get('txt');
-        if($ses != null){
-            return view('stamp', ['text' => $text]);
-        } else {
-            return view('login');
-        }
-    }
-    
-    //stamp
+    //ログインフォーム入力後
     public function stamp(Request $request){
         $email = $request->email;
         $password = $request->password;
@@ -45,28 +26,16 @@ class AtteController extends Controller
         return view('login',['text' => $text]);
         }
     }
-
+    //出勤時間打刻
     public function work_start(Request $request){
         $form = $request -> all();
         Time::create($form);
         return redirect('/');
     }
-
+    //退勤時間打刻
     public function work_finish(Request $request){
         $form = $request -> all();
         Time::create($form);
-        return redirect('/');
-    }
-
-    public function rest_start(Request $request){
-        $form = $request -> all();
-        Rest::create($form);
-        return redirect('/');
-    }
-
-    public function rest_finish(Request $request){
-        $form = $request -> all();
-        Rest::create($form);
         return redirect('/');
     }
 
