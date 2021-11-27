@@ -16,12 +16,12 @@
 <body>
   <div class="form">
     <div>
-      <p>ログイン</p>
+      <p class="login">ログイン</p>
     </div>
     <form action="/" method="post">
     @csrf  
-    <div><input type="email" value="メールアドレス"></div>
-    <div><input type="text" value="パスワード"></div>
+    <div><input type="email" placeholder="メールアドレス"></div>
+    <div><input type="text" placeholder="パスワード"></div>
     <div><button>ログイン</button></div>
     </form>
     <div class="link">

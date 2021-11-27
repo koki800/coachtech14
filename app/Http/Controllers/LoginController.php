@@ -9,12 +9,16 @@ class LoginController extends Controller
 {
     //ログインしていなければ、ログイン画面表示
     public function login(Request $request){
-        $text = Auth::user()->name ;
         $ses = $request->session()->get('txt');
         if($ses != null){
+            $text = Auth::user()->name ;
             return view('stamp', ['text' => $text]);
         } else {
-            return view('login');
+            return view('login', ['text' => ""]);
         }
+    }
+
+    public function loginview(){
+        return view('login', ['text' => ""]);
     }
 }

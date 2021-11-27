@@ -16,17 +16,17 @@
 <body>
   <div class="form">
     <div class="ttl">
-      <p>会員登録</p>
+      <p class="register">会員登録</p>
     </div>
     <div>
       <form action="/register" method="post">
       @csrf
       <input type="hidden" name="id">
-      <div><input type="text" value="名前" required></div>
-      <div><input type="email" value="メールアドレス" required></div>
-      <div><input type="text" value="パスワード" required></div>
-      <div><input type="text" value="確認用パスワード" required></div>
-      <div><button>会員登録</button></div>
+      <div><input type="text"  name="name" placeholder="名前" required></div>
+      <div><input type="email"  name="email" placeholder="メールアドレス" required></div>
+      <div><input type="text"  name="password" placeholder="パスワード" required></div>
+      <div><input type="text"  name="passwordConfirm" placeholder="確認用パスワード" required></div>
+      <div><button type="submit">会員登録</button></div>
       </form>
     </div>
     <div class="link">
@@ -34,5 +34,18 @@
       <p><a href="/login">ログイン</a></p>
     </div>
   </div>
+
+  <script>
+    let form = document.form[0];
+    form.onsubmit = function() {
+      // エラーメッセージをクリアする
+      form.password.setCustomValidity("");
+      // パスワードの一致確認
+      if (form.password.value != form.passwordConfirm.value) {
+        // 一致していなかったら、エラーメッセージを表示する
+        form.password.setCustomValidity("パスワードと確認用パスワードが一致しません");
+      }
+    };
+  </script>
 </body>
 </html>

@@ -1,13 +1,16 @@
 .form{
   position: relative;
   top: 20%;
-  left: 40%;
+  left: 37%;
+  width: 25%;
+  margin-top: 90px;
+}
+.login{
+  font-size: 1.4rem;
+  margin-bottom: 70px;
 }
 p{
   text-align: center;
-}
-p:nth-last-child(3){
-  text-decoration: none;
 }
 button{
   background-color: blue;
@@ -15,4 +18,14 @@ button{
 }
 .ttl,input,button,.link{
   margin-bottom: 50px;
+}
+input,button{
+  line-height: 2rem;
+  width: 100%;
+}
+p:nth-last-child(2){
+  color: gray;
+}
+p:nth-last-child(3){
+  text-decoration: none;
 }

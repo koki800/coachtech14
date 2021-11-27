@@ -24,9 +24,7 @@ Route::post('/register',[ RegisterController::class,'register']);
 
 
 
-Route::get('/login',function(){
-  return view('login');
-});
+Route::get('/login',[LoginController::class,'loginview']);
 
 
 

@@ -1,10 +1,18 @@
 .form{
   position: relative;
   top: 20%;
-  left: 40%;
+  left: 37%;
+  width: 25%;
+  margin-top: 90px;
+}
+.register{
+  font-size: 1.4rem;
 }
 p{
   text-align: center;
+}
+p:nth-last-child(2){
+  color: gray;
 }
 p:nth-last-child(3){
   text-decoration: none;
@@ -13,6 +21,10 @@ button{
   background-color: blue;
   color: white;
 }
+input,button{
+  line-height: 2rem;
+  width: 100%;
+}
 .ttl,input,button,.link{
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
