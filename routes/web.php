@@ -24,12 +24,12 @@ Route::post('/register',[ RegisterController::class,'register']);
 
 
 
-Route::get('/login',[LoginController::class,'loginview']);
+Route::get('/login',[LoginController::class,'login_view']);
 
 
 
 Route::get('/',[LoginController::class,'login']);
-Route::post('/',[AttendanceController::class,'stamp']);
+Route::post('/',[LoginController::class,'stamp_view']);
 
 
 

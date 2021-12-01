@@ -3,30 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Time;
 use App\Models\User;
 
 class AttendanceController extends Controller
 {   
-    //ログインフォーム入力後
-    public function stamp(LoginRequest $request){
-        $email = $request->email;
-        $password = $request->password;
-        if (Auth::attempt(['email' => $email,
-            'password' => $password])) {
-        $text = Auth::user()->name ;
-
-        $txt = $request->input;
-        $request->session()->put('txt',$txt);
-
-        return view('stamp', ['text' => $text]);
-        } else {
-        $text = 'ログインに失敗しました';
-        return view('login',['text' => $text]);
-        }
-    }
     //出勤時間打刻
     public function work_start(Request $request){
         $form = $request -> all();
