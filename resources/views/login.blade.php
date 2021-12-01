@@ -20,13 +20,23 @@
     </div>
     <form action="/" method="post">
     @csrf  
-    <div><input type="email" placeholder="メールアドレス"></div>
-    <div><input type="text" placeholder="パスワード"></div>
+    <div>
+      <input type="email" placeholder="メールアドレス">
+      @error('email')
+      <p class="message">{{$message}}</p>
+      @enderror
+    </div>
+    <div>
+      <input type="text" placeholder="パスワード">
+      @error('password')
+      <p class="message">{{$message}}</p>
+      @enderror
+    </div>
     <div><button>ログイン</button></div>
     </form>
-    <div class="link">
-      <p>アカウントをお持ちでない方はこちらから</p>
-      <p><a href="/register">会員登録</a></p>
+    <div>
+      <p class="link_text">アカウントをお持ちでない方はこちらから</p>
+      <p class="link"><a href="/register">会員登録</a></p>
     </div>
     <div>
       <p>{{$text}}</p>

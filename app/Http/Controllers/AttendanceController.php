@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Time;
 use App\Models\User;
@@ -10,7 +11,7 @@ use App\Models\User;
 class AttendanceController extends Controller
 {   
     //ログインフォーム入力後
-    public function stamp(Request $request){
+    public function stamp(LoginRequest $request){
         $email = $request->email;
         $password = $request->password;
         if (Auth::attempt(['email' => $email,

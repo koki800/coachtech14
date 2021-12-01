@@ -9,23 +9,26 @@
   font-size: 1.4rem;
   margin-bottom: 70px;
 }
-p{
+.login,.link_text,.link{
   text-align: center;
+}
+.link_text{
+  color: gray;
+}
+.link a{
+  text-decoration: none;
+}
+.message{
+  color: red;
 }
 button{
   background-color: blue;
   color: white;
 }
-.ttl,input,button,.link{
+div{
   margin-bottom: 50px;
 }
 input,button{
   line-height: 2rem;
   width: 100%;
-}
-p:nth-last-child(2){
-  color: gray;
-}
-p:nth-last-child(3){
-  text-decoration: none;
 }

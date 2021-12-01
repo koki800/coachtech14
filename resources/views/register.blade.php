@@ -22,30 +22,29 @@
       <form action="/register" method="post">
       @csrf
       <input type="hidden" name="id">
-      <div><input type="text"  name="name" placeholder="名前" required></div>
-      <div><input type="email"  name="email" placeholder="メールアドレス" required></div>
+      <div><input type="text"  name="name" placeholder="名前" value="{{old('name')}}">
+      @error('name')
+      <p class="message">{{$message}}</p>
+      @enderror
+      </div>
+      <div><input type="email"  name="email" placeholder="メールアドレス" value="{{old('email')}}">
+      @error('email')
+      <p class="message">{{$message}}</p>
+      @enderror
+      </div>
       <div><input type="text"  name="password" placeholder="パスワード" required></div>
-      <div><input type="text"  name="passwordConfirm" placeholder="確認用パスワード" required></div>
-      <div><button type="submit">会員登録</button></div>
+      <div><input type="text"  name="password_confirmation" placeholder="確認用パスワード" required>
+      @error('password')
+      <p class="message">{{$message}}</p>
+      @enderror
+      </div>
+      <div><button>会員登録</button></div>
       </form>
     </div>
-    <div class="link">
-      <p>アカウントをお持ちの方はこちらから</p>
-      <p><a href="/login">ログイン</a></p>
+    <div>
+      <p class="link_text">アカウントをお持ちの方はこちらから</p>
+      <p class="link"><a href="/login">ログイン</a></p>
     </div>
   </div>
-
-  <script>
-    let form = document.form[0];
-    form.onsubmit = function() {
-      // エラーメッセージをクリアする
-      form.password.setCustomValidity("");
-      // パスワードの一致確認
-      if (form.password.value != form.passwordConfirm.value) {
-        // 一致していなかったら、エラーメッセージを表示する
-        form.password.setCustomValidity("パスワードと確認用パスワードが一致しません");
-      }
-    };
-  </script>
 </body>
 </html>
