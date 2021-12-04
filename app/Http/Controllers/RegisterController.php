@@ -4,13 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    //register
+    //データ登録
     public function register(RegisterRequest $request){
-        $form = $request -> all();
-        User::create($form);
+        User::create([
+            'name'=> $request['name'],
+            'email'=> $request['email'],
+            'password'=> Hash::make($request['password']),
+        ]);
+        //ログイン画面表示
         return view('login', ['text' => ""]);
     }
 }

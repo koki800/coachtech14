@@ -21,13 +21,13 @@
     <form action="/" method="post">
     @csrf  
     <div>
-      <input type="email" placeholder="メールアドレス">
+      <input type="email" name="email" placeholder="メールアドレス">
       @error('email')
       <p class="message">{{$message}}</p>
       @enderror
     </div>
     <div>
-      <input type="text" placeholder="パスワード">
+      <input type="text" name="password" placeholder="パスワード">
       @error('password')
       <p class="message">{{$message}}</p>
       @enderror

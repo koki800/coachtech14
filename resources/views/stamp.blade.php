@@ -22,28 +22,28 @@
       <form action="" method="post">
       @csrf
         <div>
-          <input type="hidden" name="id"  value="{{$item -> id}}">
+          <input type="hidden" name="id"  value="{{$time_id}}">
           <button name="start_at" onclick="this.disabled = true;">勤務開始</button>
         </div>
       </form>
       <form action="" method="post">
       @csrf
         <div>
-          <input type="hidden" name="id"  value="{{$item -> id}}">
+          <input type="hidden" name="id"  value="{{$time_id}}">
           <button name="finish_at" onclick="this.disabled = true;">勤務終了</button>
         </div>
       </form>
       <form action="" method="post">
       @csrf
         <div>
-          <input type="hidden" name="id"  value="{{$item -> id}}">
+          <input type="hidden" name="id"  value="{{$rest_id}}">
           <button name="start_at" onclick="this.disabled = true;">休憩開始</button>
         </div>
       </form>
       <form action="" method="post">
       @csrf
         <div>
-          <input type="hidden" name="id"  value="{{$item -> id}}">
+          <input type="hidden" name="id"  value="{{$rest_id}}">
           <button name="finish_at" onclick="this.disabled = true;">休憩終了</button>
         </div>
       </form>
