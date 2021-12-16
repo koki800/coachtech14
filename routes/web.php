@@ -31,13 +31,13 @@ Route::get('/login',[LoginController::class,'login_view']);
 
 //ログイン画面または勤怠画面表示
 Route::get('/',[LoginController::class,'login']);
-Route::post('/',[LoginController::class,'stamp_view']);
+Route::post('/',[LoginController::class,'index_view']);
 
 
-//勤務開始打刻
-Route::post('/work_start',[AttendanceController::class,'work_start']);
-//勤務終了打刻
-Route::post('/work_finish',[AttendanceController::class,'work_finish']);
+//出勤打刻
+Route::post('/work_start',[WorkController::class,'work_start']);
+//退勤打刻
+Route::post('/work_finish',[WorkController::class,'work_finish']);
 
 
 //休憩開始打刻

@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Time;
-use App\Models\User;
 
-class AttendanceController extends Controller
+class WorkController extends Controller
 {   
     //出勤時間打刻
     public function work_start(Request $request){
@@ -28,3 +26,5 @@ class AttendanceController extends Controller
         return view('date', ['items' => $items]);
     }
 }
+
+

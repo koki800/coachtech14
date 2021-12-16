@@ -39,7 +39,8 @@
       <p class="link"><a href="/register">会員登録</a></p>
     </div>
     <div>
-      <p>{{$text}}</p>
+      <p>{{$text1}}</p>
+      <p>{{$text2}}</p>
     </div>
   </div>
 </body>

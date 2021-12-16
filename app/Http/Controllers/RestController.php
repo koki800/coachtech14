@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Rest;
 
 class RestController extends Controller
-{   //休憩開始
+{   
+    //休憩開始
     public function rest_start(Request $request){
         $form = $request -> all();
         Rest::create($form);

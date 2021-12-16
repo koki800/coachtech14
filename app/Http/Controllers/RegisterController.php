@@ -16,6 +16,6 @@ class RegisterController extends Controller
             'password'=> Hash::make($request['password']),
         ]);
         //ログイン画面表示
-        return view('login', ['text' => ""]);
+        return redirect('/login');
     }
 }
