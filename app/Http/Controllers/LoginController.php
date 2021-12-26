@@ -54,22 +54,17 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $email,
             'password' => $password])) {
         //認証成功
-        $txt = $request->input;
-        $request->session()->put('txt',$txt);
-
         $user_name = Auth::user()->name ;
         
         //users(id)取得
         $user_id = User::where('name',$user_name)->get('id');
 
-
         $date = Carbon::now()->format("Y-m-d");
         //time(id)取得
-        $time_id = Time::where('user_id',$user_id)->where('date',$date)->get('id');
-
-        if($time_id != null){
+        $time_id = Time::where('user_id',$user_id)->where('date',$date)->first('id');
+        if(!empty($time_id)){
             //rest(id)取得
-            $rest_id = Rest::where('time_id',$time_id)->get('id');
+            $rest_id = Rest::where('time_id',$time_id)->first('id');
         }else{
             $rest_id = null;
         }
@@ -79,6 +74,9 @@ class LoginController extends Controller
             'time_id' => $time_id,
             'rest_id' => $rest_id,
         ];
+
+        $txt = $request->input;
+        $request->session()->put('txt',$txt);
 
         //勤怠画面表示
         return view('index', $param);

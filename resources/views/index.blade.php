@@ -14,35 +14,35 @@
   <title>打刻ページ</title>
 </head>
 <body>
-  <div>
+  <div class="index_container">
     <div class="text">
       <p>{{$user_name}}さんお疲れ様です！</p>
     </div>
     <div class="stamp_container">
-      <form action="" method="post">
+      <form action="/work_start" method="post">
       @csrf
-        <div>
+        <div class="stamp">
           <input type="hidden" name="id">
           <button name="start_at" id="time_start" disabled>勤務開始</button>
         </div>
       </form>
-      <form action="" method="post">
+      <form action="/work_finish" method="post">
       @csrf
-        <div>
+        <div class="stamp">
           <input type="hidden" name="id"  value="{{$time_id}}">
           <button name="finish_at" id="time_finish" disabled>勤務終了</button>
         </div>
       </form>
-      <form action="" method="post">
+      <form action="/rest_start" method="post">
       @csrf
-        <div>
+        <div class="stamp">
           <input type="hidden" name="id">
           <button name="start_at" id="rest_start" disabled>休憩開始</button>
         </div>
       </form>
-      <form action="" method="post">
+      <form action="rest_finish" method="post">
       @csrf
-        <div>
+        <div class="stamp">
           <input type="hidden" name="id"  value="{{$rest_id}}">
           <button name="finish_at" id="rest_finish" disabled>休憩終了</button>
         </div>
@@ -61,23 +61,43 @@
   button4 = document.getElementById('rest_finish');
 
 　//ボタン無効条件分岐
-  if(time_id = null){
+  if(time_id === null){
     //勤務開始前
+    //オフ：勤務終了・休憩開始・休憩終了
     button1.disabled = false;
+
     button2.disabled = true;
+    button2.style.opacity = 0.5;
+
     button3.disabled = true;
+    button3.style.opacity = 0.5;
+
     button4.disabled = true;
-  }else if(rest_id = null){
+    button4.style.opacity = 0.5;
+  }else if(rest_id === null){
     //勤務開始後
+    //オフ：勤務開始・休憩終了
     button1.disabled = true;
+    button1.style.opacity = 0.5;
+
     button2.disabled = false;
+
     button3.disabled = false;
+
     button4.disabled = true;
-  }else(rest_id != null){
+    button4.style.opacity = 0.5;
+  }else(rest_id !== null){
     //休憩開始後
+    //オフ：勤務開始・勤務終了・休憩開始
     button1.disabled = true;
+    button1.style.opacity = 0.5;
+
     button2.disabled = true;
+    button2.style.opacity = 0.5;
+
     button3.disabled = true;
+    button3.style.opacity = 0.5;
+
     button4.disabled = false;
   }
   

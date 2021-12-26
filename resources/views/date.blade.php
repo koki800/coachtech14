@@ -17,6 +17,7 @@
   @if($items != null)
   @foreach($items as $item)
   <div>
+    <p>{{$item -> date}}</p>
     <p>{{$item -> links()}}</p>
   </div>
   <div>
@@ -29,7 +30,7 @@
         <th>勤務時間</th>
       </tr>
       <tr>
-        <td>{{$item -> links()}}</td>
+        <td>{{$item -> name}}</td>
         <td>{{$item -> links()}}</td>
         <td>{{$item -> links()}}</td>
         <td>{{$item -> links()}}</td>
@@ -38,7 +39,7 @@
     </table>
   </div>
   <div>
-    <p>{{$item -> links()}}</p>
+    <p>{{$pages -> links()}}</p>
   </div>
   @endforeach
   @endif

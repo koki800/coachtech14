@@ -20,10 +20,12 @@ class WorkController extends Controller
         return redirect('/');
     }
 
-    //date
+    //日付勤怠ページ表示
     public function date(){
         $items = Time::simplePaginate(1);
-        return view('date', ['items' => $items]);
+        $pages = Time::paginate(5);
+        $param = ['items' => $items,'pages' => $pages];
+        return view('date',$param);
     }
 }
 
