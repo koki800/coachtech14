@@ -62,17 +62,38 @@ class LoginController extends Controller
         $date = Carbon::now()->format("Y-m-d");
         //time(id)取得
         $time_id = Time::where('user_id',$user_id)->where('date',$date)->first('id');
+
         if(!empty($time_id)){
             //rest(id)取得
-            $rest_id = Rest::where('time_id',$time_id)->first('id');
+            $rest_id = Rest::where('time_id',$time_id)->max('id');
+
+            //time(start_at)取得
+            $time_start = Time::where('user_id',$user_id)->where('date',$date)->first('start_at');
+
+            //time(finish_at)取得
+            $time_finish = Time::where('user_id',$user_id)->where('date',$date)->first('finish_at');
+            
+            //rest(start_at)取得
+            $rest_start = Rest::where('time_id',$time_id)->max('start_at');
+            
+            //rest(finish_at)取得
+            $rest_finish = Rest::where('time_id',$time_id)->max('finish_at');
         }else{
             $rest_id = null;
+            $time_start = null;
+            $time_finish = null;
+            $rest_start = null;
+            $rest_finish = null;
         }
 
         $param = [
             'user_name' => $user_name,
             'time_id' => $time_id,
             'rest_id' => $rest_id,
+            'time_start' => $time_start,
+            'time_finish' => $time_finish,
+            'rest_start' => $rest_start,
+            'rest_finish' => $rest_finish,
         ];
 
         $txt = $request->input;

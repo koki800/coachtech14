@@ -48,59 +48,12 @@
         </div>
       </form>
     </div>
-  </div>
-  <script>
-    
-  const time_id = @json($time_id);
-  const rest_id = @json($rest_id);
+</div>
 
-　//ボタン要素取得
-  button1 = document.getElementById('time_start');
-  button2 = document.getElementById('time_finish');
-  button3 = document.getElementById('rest_start');
-  button4 = document.getElementById('rest_finish');
-
-　//ボタン無効条件分岐
-  if(time_id === null){
-    //勤務開始前
-    //オフ：勤務終了・休憩開始・休憩終了
-    button1.disabled = false;
-
-    button2.disabled = true;
-    button2.style.opacity = 0.5;
-
-    button3.disabled = true;
-    button3.style.opacity = 0.5;
-
-    button4.disabled = true;
-    button4.style.opacity = 0.5;
-  }else if(rest_id === null){
-    //勤務開始後
-    //オフ：勤務開始・休憩終了
-    button1.disabled = true;
-    button1.style.opacity = 0.5;
-
-    button2.disabled = false;
-
-    button3.disabled = false;
-
-    button4.disabled = true;
-    button4.style.opacity = 0.5;
-  }else(rest_id !== null){
-    //休憩開始後
-    //オフ：勤務開始・勤務終了・休憩開始
-    button1.disabled = true;
-    button1.style.opacity = 0.5;
-
-    button2.disabled = true;
-    button2.style.opacity = 0.5;
-
-    button3.disabled = true;
-    button3.style.opacity = 0.5;
-
-    button4.disabled = false;
-  }
-  
-  </script>
+<script src="{{ asset('/js/index.js') }}">
+  const time_start = @json($time_start);
+  const time_finish = @json($time_finish);
+  const rest_start = @json($rest_start);const rest_finish = @json($rest_finish);
+</script>
 </body>
 </html>

@@ -16,6 +16,9 @@
 <body>
   @if($items != null)
   @foreach($items as $item)
+  @foreach($users as $user)
+  @foreach($work_times as $work_time)
+  @foreach($rest_times as $rest_time)
   <div>
     <p>{{$item -> date}}</p>
     <p>{{$item -> links()}}</p>
@@ -30,18 +33,38 @@
         <th>勤務時間</th>
       </tr>
       <tr>
-        <td>{{$item -> name}}</td>
-        <td>{{$item -> links()}}</td>
-        <td>{{$item -> links()}}</td>
-        <td>{{$item -> links()}}</td>
-        <td>{{$item -> links()}}</td>
+        <td>{{$user -> name}}</td>
+        <td>{{$work_time -> start_at}}</td>
+        <td>{{$work_time -> finish_at}}</td>
+        <td>{{$rest_time -> rest_sum}}</td>
+        <td>{{$work_time -> work_sum}}</td>
       </tr>
     </table>
   </div>
   <div>
-    <p>{{$pages -> links()}}</p>
+    <p>{{$users -> links(21)}}</p>
   </div>
   @endforeach
+  @endforeach
+  @endforeach
+  @endforeach
+
+  @else
+  <div>
+    <p>{{$item -> date}}</p>
+    <p>{{$item -> links()}}</p>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th>名前</th>
+        <th>勤務開始</th>
+        <th>勤務終了</th>
+        <th>休憩時間</th>
+        <th>勤務時間</th>
+      </tr>
+    </table>
+  </div>
   @endif
 </body>
 </html>

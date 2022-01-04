@@ -22,11 +22,11 @@ class WorkController extends Controller
 
     //日付勤怠ページ表示
     public function date(){
-        $items = Time::simplePaginate(1);
-        $pages = Time::paginate(5);
-        $param = ['items' => $items,'pages' => $pages];
+        $items = Time::simplePaginate(1,["*"], 'datepage');
+        $users = User::paginate(5,["*"], 'userpage');
+        $work_times = Time::paginate(5,["*"], 'timepage');
+        $rest_times = Rest::paginate(5,["*"], 'restpage');
+        $param = ['items' => $items,'users' => $users,'work_times' => $work_times,'rest_times' => $rest_times];
         return view('date',$param);
     }
 }
-
-
